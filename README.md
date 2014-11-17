@@ -1,6 +1,6 @@
 # Having a play with the Mozilla MetricsGraphics.js library
 
-[MetricsGraphics.js](http://metricsgraphicsjs.org/) is a D3.js based graphing library optimised for time-series data. This is a quick test of it with real financial data from [https://www.quandl.com/](). In the case of the full range of the Apple share data this is ~12000 data points from late 1980 to the present-ish.
+[MetricsGraphics.js](http://metricsgraphicsjs.org/) is a D3.js based graphing library optimised for time-series data. This is a quick test of it with real financial data from [https://www.quandl.com/](). In the case of the full range of the Apple share data this is ~8500 data points from late 1980 to the present-ish.
 
 ## To make it go
 * Clone the repo.
