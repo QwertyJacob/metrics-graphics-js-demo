@@ -30,17 +30,21 @@
 
 
     // Define the graph configuration.
+    var markers = [{}];
+    markers[0][dateFieldKey] = new Date('2007-06-29');
+    markers[0].label = 'iPhone released';
     var appleClosingGraph = {
         title: 'Closing prices for ' + company.displayName + ' (' + company.symbol + ') shares.',
         description: "Closing prices for Apple shares taken from <a href='https://www.quandl.com/'>quandl.com</a>",
         target: '#apple_closing_graph',
-        width: 800,
+        width: 1000,
         height: 600,
         x_accessor: dateFieldKey,
         y_accessor: closeFieldKey,
-        yax_units: currencyUnit
+        xax_count: 0,
+        yax_units: currencyUnit,
+        markers: markers
     };
-
     // Kick it all off!
     $(document).ready(init);
 
