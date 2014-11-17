@@ -1,0 +1,16 @@
+{
+  "name": "metrics-graphics-demo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Quick practice with the Mozilla MetricsGraphics.js library.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jim Cresswell",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "~3.8.8",
+    "browser-sync": "~1.5.8"
+  }
+}
