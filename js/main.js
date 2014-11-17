@@ -29,12 +29,33 @@
     mgjs.convert_dates = window.convert_dates
 
 
-    // Kick it all off.
+    // Define the graph configuration.
+    var appleClosingGraph = {
+        title: 'Closing prices for ' + company.displayName + ' (' + company.symbol + ') shares.',
+        description: "Closing prices for Apple shares taken from <a href='https://www.quandl.com/'>quandl.com</a>",
+        target: '#apple_closing_graph',
+        width: 800,
+        height: 600,
+        x_accessor: dateFieldKey,
+        y_accessor: closeFieldKey,
+        yax_units: currencyUnit
+    };
+
+    // Kick it all off!
     $(document).ready(init);
+
+
+    // Initialise the graphs and get, process and draw the data.
     function init() {
         var ls = window.localStorage;
         var lsKey = 'mgd-data';
         var dataJson;
+
+
+        /**
+         * Draw placeholders for the graphs before requesting the data.
+         */
+         initGraphs();
 
         /**
          * Get the data either from localstorage or remotely.
@@ -92,20 +113,18 @@
         processedData = mgjs.convert_dates(processedData, dateFieldKey);
 
         // Now draw the graphs!
-        drawGraphs(processedData);
+        updateGraphsData(processedData);
     }
 
-    function drawGraphs(data) {
-        mgjs.data_graphic({
-            title: 'Closing prices for ' + company.displayName + ' (' + company.symbol + ') shares.',
-            description: "Closing prices for Apple shares taken from <a href='https://www.quandl.com/'>quandl.com</a>",
-            data: data,
-            width: 800,
-            height: 600,
-            target: '#apple_closing_graph',
-            x_accessor: dateFieldKey,
-            yax_units: currencyUnit,
-            y_accessor: closeFieldKey
-        });
+    function initGraphs(data) {
+        var options = _.clone(appleClosingGraph);
+        options.chart_type = 'missing-data';
+        mgjs.data_graphic(options);
+    }
+
+    function updateGraphsData(data) {
+        var options = _.clone(appleClosingGraph);
+        options.data = data;
+        mgjs.data_graphic(options);
     }
 })();
