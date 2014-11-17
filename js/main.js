@@ -6,10 +6,14 @@
      * Config for using the quandl.com data api v1.
      */
     var company = {
-        name: 'Apple',
+
+        // This could be derived from the returned metadata but
+        // this is neater and only slightly fragile.
+        displayName: 'Apple Inc.',
+
         symbol: 'AAPL'
-    }
-    var startDate = '1980-12-12'
+    };
+    var startDate = '1980-12-12';
     var dataUrl = 'https://www.quandl.com/api/v1/datasets/WIKI/' + company.symbol + '.json?trim_start=' + startDate;
     var columnNamesKey = 'column_names';
     var dateFieldKey = 'Date';
@@ -93,7 +97,7 @@
 
     function drawGraphs(data) {
         mgjs.data_graphic({
-            title: 'Closing prices for ' + company.name + ' (' + company.symbol + ') shares.',
+            title: 'Closing prices for ' + company.displayName + ' (' + company.symbol + ') shares.',
             description: "Closing prices for Apple shares taken from <a href='https://www.quandl.com/'>quandl.com</a>",
             data: data,
             width: 800,
