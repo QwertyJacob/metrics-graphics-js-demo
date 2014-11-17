@@ -5,7 +5,12 @@
     /*
      * Config for using the quandl.com data api v1.
      */
-    var dataUrl = 'https://www.quandl.com/api/v1/datasets/WIKI/AAPL.json?trim_start=1980-12-12&trim_end=2014-11-12';
+    var company = {
+        name: 'Apple',
+        symbol: 'AAPL'
+    }
+    var startDate = '1980-12-12'
+    var dataUrl = 'https://www.quandl.com/api/v1/datasets/WIKI/' + company.symbol + '.json?trim_start=' + startDate;
     var columnNamesKey = 'column_names';
     var dateFieldKey = 'Date';
     var closeFieldKey = 'Close';
@@ -88,7 +93,7 @@
 
     function drawGraphs(data) {
         mgjs.data_graphic({
-            title: "Closing prices for Apple shares",
+            title: 'Closing prices for ' + company.name + ' (' + company.symbol + ') shares.',
             description: "Closing prices for Apple shares taken from <a href='https://www.quandl.com/'>quandl.com</a>",
             data: data,
             width: 800,
