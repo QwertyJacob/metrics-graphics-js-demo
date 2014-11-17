@@ -1,6 +1,3 @@
-// TODO: get the chart sizes from the CSS via the DOM.
-// TODO: multiple graphs.
-
 'use strict';
 
 (function() {
